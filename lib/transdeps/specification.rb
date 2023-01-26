@@ -1,7 +1,7 @@
 module Transdeps
   class Specification < Struct.new(:name, :version, :project_path)
     def self.from_lock(lock, path='')
-      match = lock.match(/^(?<name>[^\s]+) \((?<version>.*)\)/)
+      match = lock.match(/^(?<name>[^\s]+) \((?<version>[\d|\.]+)-?(?<os>.*)\)/)
       new(match[:name], match[:version], path)
     end
 
